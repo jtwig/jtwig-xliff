@@ -30,7 +30,8 @@ buildscript {
 
 
 dependencies {
-    compile 'org.jtwig:jtwig-translate-extension:1.17'
+    compile 'org.jtwig:jtwig-translate-extension:1.+'
+
     compile 'com.google.guava:guava:18.0'
     compile 'org.apache.commons:commons-lang3:3.1'
 
