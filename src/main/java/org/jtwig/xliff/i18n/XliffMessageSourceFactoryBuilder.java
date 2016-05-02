@@ -39,25 +39,26 @@ public class XliffMessageSourceFactoryBuilder implements Builder<MessageSourceFa
     }
 
     public XliffMessageSourceFactoryBuilder withLookupDirectory (File directory) {
-        localizedResourceProviders.add(new FileLocalizedResourceProvider(directory, fileFilter, directory()));
-        return this;
+        return withResourceProvider(new FileLocalizedResourceProvider(directory, fileFilter, directory()));
     }
     public XliffMessageSourceFactoryBuilder withLookupDirectoryRecursively (String directory) {
         return withLookupDirectoryRecursively(new File(directory));
     }
 
     public XliffMessageSourceFactoryBuilder withLookupDirectoryRecursively (File directory) {
-        localizedResourceProviders.add(new FileLocalizedResourceProvider(directory, fileFilter, recursiveDirectory()));
-        return this;
+        return withResourceProvider(new FileLocalizedResourceProvider(directory, fileFilter, recursiveDirectory()));
     }
 
     public XliffMessageSourceFactoryBuilder withLookupClasspath (String basePackage) {
-        localizedResourceProviders.add(new ClasspathLocalizedResourceProvider(getClass().getClassLoader(), basePackage, fileFilter, directory()));
-        return this;
+        return withResourceProvider(new ClasspathLocalizedResourceProvider(getClass().getClassLoader(), basePackage, fileFilter, directory()));
     }
 
     public XliffMessageSourceFactoryBuilder withLookupClasspathRecursively (String basePackage) {
-        localizedResourceProviders.add(new ClasspathLocalizedResourceProvider(getClass().getClassLoader(), basePackage, fileFilter, recursiveDirectory()));
+        return withResourceProvider(new ClasspathLocalizedResourceProvider(getClass().getClassLoader(), basePackage, fileFilter, recursiveDirectory()));
+    }
+
+    public XliffMessageSourceFactoryBuilder withResourceProvider (LocalizedResourceProvider localizedResourceProvider) {
+        localizedResourceProviders.add(localizedResourceProvider);
         return this;
     }
 
