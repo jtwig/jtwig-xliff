@@ -2,9 +2,9 @@
 
 **Build Stats**
 
-[![Build Status](https://travis-ci.org/jtwig/jtwig-xliff.svg?branch=master)](https://travis-ci.org/jtwig/jtwig-xliff)
-[![Coverage Status](https://coveralls.io/repos/jtwig/jtwig-xliff/badge.svg?branch=master&service=github)](https://coveralls.io/github/jtwig/jtwig-xliff?branch=master)
-[![Download](https://api.bintray.com/packages/jtwig/maven/jtwig-xliff/images/download.svg) ](https://bintray.com/jtwig/maven/jtwig-xliff/_latestVersion)
+[![Build Status](https://travis-ci.org/jtwig/jtwig-xliff-extension.svg?branch=master)](https://travis-ci.org/jtwig/jtwig-xliff-extension)
+[![codecov](https://codecov.io/gh/jtwig/jtwig-xliff-extension/branch/master/graph/badge.svg)](https://codecov.io/gh/jtwig/jtwig-xliff-extension)
+[![Download](https://api.bintray.com/packages/jtwig/maven/jtwig-xliff-extension/images/download.svg) ](https://bintray.com/jtwig/maven/jtwig-xliff-extension/_latestVersion)
 
 
 **Licensing**
