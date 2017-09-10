@@ -10,7 +10,6 @@ public class XmlStartElementFactory {
     }
 
     public XmlStartElement create (XMLEvent event) {
-        assert event.isStartElement();
         return new XmlStartElement(xmlAttributeFactory, event.asStartElement());
     }
 }

@@ -11,10 +11,6 @@ public class XmlReaderEvent {
         this.event = event;
     }
 
-    public boolean isStartElement() {
-        return event.isStartElement();
-    }
-
     public XmlStartElement asStartElement() {
         return xmlStartElementFactory.create(event);
     }

@@ -6,6 +6,7 @@ import org.jtwig.xliff.parser.xml.XmlAttribute;
 import org.jtwig.xliff.parser.xml.XmlReader;
 import org.jtwig.xliff.parser.xml.XmlReaderEvent;
 import org.jtwig.xliff.parser.xml.XmlStartElement;
+import org.jtwig.xliff.parser.xml.exceptions.XmlReaderException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -29,6 +30,17 @@ public class TranslationFileParserTest {
         when(xmlReader.currentEvent()).thenReturn(xmlReaderEvent);
         when(xmlReaderEvent.asStartElement()).thenReturn(xmlStartElement);
         when(xmlStartElement.getAttribute("target-language")).thenReturn(Optional.<XmlAttribute>absent());
+
+        expectedException.expect(XliffParsingException.class);
+
+        underTest.parse(xmlReader);
+    }
+
+    @Test
+    public void innerException() throws Exception {
+        XmlReader xmlReader = mock(XmlReader.class);
+
+        when(xmlReader.currentEvent()).thenThrow(new XmlReaderException("test"));
 
         expectedException.expect(XliffParsingException.class);
 
