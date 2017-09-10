@@ -15,10 +15,6 @@ public class XmlStartElement {
         this.event = event;
     }
 
-    public boolean hasName(String name) {
-        return this.event.getName() != null && name.equals(this.event.getName().getLocalPart());
-    }
-
     public Optional<XmlAttribute> getAttribute(String name) {
         Iterator<Attribute> attributeIterator = this.event.getAttributes();
         while (attributeIterator.hasNext()) {

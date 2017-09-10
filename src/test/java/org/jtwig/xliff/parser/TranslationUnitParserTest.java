@@ -5,12 +5,14 @@ import org.jtwig.xliff.exceptions.XliffParsingException;
 import org.jtwig.xliff.model.TranslationUnit;
 import org.jtwig.xliff.parser.xml.XmlReader;
 import org.jtwig.xliff.parser.xml.XmlStartElement;
+import org.jtwig.xliff.parser.xml.exceptions.XmlReaderException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -53,5 +55,16 @@ public class TranslationUnitParserTest {
 
         assertThat(result.getSource(), is("one"));
         assertThat(result.getTarget(), is("two"));
+    }
+
+    @Test
+    public void parseExtension() throws Exception {
+        XmlReader reader = mock(XmlReader.class);
+
+        when(reader.nextStartElement(anyString())).thenThrow(new XmlReaderException("test"));
+
+        expectedException.expect(XliffParsingException.class);
+
+        underTest.parse(reader);
     }
 }
